@@ -11,6 +11,7 @@ const AppProvider = ({children}) =>{
   const [email,setEmail] = useState('');
   const [password,setPassword] = useState('');
   const [isLogin,setLogin] = useState(false);
+  const[isError,setError] = useState(false);
   const handleSubmit = (e) =>{ 
     e.preventDefault();
       axios.post(URL,{
@@ -18,12 +19,14 @@ const AppProvider = ({children}) =>{
         "password": password
       }).then((response)=>{
         setLogin(true);
+        setError(false);
         // console.log(response);
       }).catch((err)=>{
+        setError(true);
         console.log(err);
       })
   }
-  return <AppContext.Provider value={{setPassword,setEmail,handleSubmit,isLogin,setLogin}}>{children}</AppContext.Provider>
+  return <AppContext.Provider value={{setPassword,setEmail,handleSubmit,isLogin,setLogin,isError}}>{children}</AppContext.Provider>
 }
 
 export const useGlobalContext = () =>{

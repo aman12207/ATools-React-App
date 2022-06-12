@@ -1,5 +1,6 @@
 import React from "react";
 import { useGlobalContext } from "../context";
+import Logo from '../images/logo.png'
 
 const NavBar = () => {
   const {isLogin,setLogin} = useGlobalContext()
@@ -12,7 +13,7 @@ const NavBar = () => {
     <nav className="navbar navbar-expand-lg bg-light p-0">
       <div className="container-fluid">
       <a className="navbar-brand" href="#">
-        <img src="http://wpbusinesssolution.com/logo_new.png" alt="Logo" width="135" height="45" className="d-inline-block align-text-top"/>
+        <img src={Logo} alt="Logo" width="135" height="45" className="d-inline-block align-text-top"/>
       </a>
         <button
           className="navbar-toggler"

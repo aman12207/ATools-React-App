@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useGlobalContext } from "../context";
 
 const Login = () => {
-  const {setPassword,setEmail,handleSubmit,isLogin} = useGlobalContext();
+  const {setPassword,setEmail,handleSubmit,isLogin,isError} = useGlobalContext();
   return (
   <div className="form-signin m-auto col-md-4 text-center">
     {isLogin? <h1>Successfully Logged in </h1> :
@@ -40,6 +40,7 @@ const Login = () => {
           <a href="#" className="forget-pass">Forget Password?</a>
         </div>
       </form>}
+      {isError && <p style={{textAlign: 'left'}}>Login Failed</p>}
     </div>
   );
 };
